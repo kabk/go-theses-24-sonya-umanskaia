@@ -4,8 +4,8 @@ document.addEventListener('mousemove', function(e) {
     let yLine = crosshair.querySelector('.y');
     
     // Adjust position of lines to center around cursor
-    xLine.style.top = e.clientY + 'px';
-    yLine.style.left = e.clientX + 'px';
+    xLine.style.top = e.clientY + window.scrollY + 'px';
+    yLine.style.left = e.clientX + window.scrollX + 'px';
 });
 
  // Function to create a single div with the specified coordinates text
@@ -55,6 +55,6 @@ window.onload = function() {
 
 document.addEventListener('mousemove', function(e) {
     var cursor = document.querySelector('.custom-cursor');
-    cursor.style.top = (e.clientY - 10) + 'px'; /* Adjusted position */
-    cursor.style.left = (e.clientX - 10) + 'px'; /* Adjusted position */
+    cursor.style.top = (e.clientY - 0) + 'px'; /* Adjusted position */
+    cursor.style.left = (e.clientX - 20) + 'px'; /* Adjusted position */
 });

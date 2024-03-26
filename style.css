@@ -54,8 +54,8 @@
   box-sizing: border-box;
   font-size: 16px;
   font-family: Wremena;
-  background:black;
-  color:white;
+  background:rgb(10, 10, 10);
+  color:rgb(241, 241, 241);
   -webkit-font-smoothing: antialiased;
   font-smoothing:antialiased;
   counter-reset: sidenote-counter;
@@ -85,6 +85,7 @@ ul {
 }
 
 body {
+  width:100%;
   cursor: none;
 }
 
@@ -332,8 +333,8 @@ h4 {
   padding-bottom:0;
   position:relative;
   text-decoration: underline;
-  margin-top:8rem;
-  margin-bottom: 4rem;
+  margin-top:5rem;
+  margin-bottom: 2rem;
 }
 
 .quote {
@@ -378,14 +379,32 @@ h4 {
   align-content: flex-start;
   width:50vw;
   text-indent: 2rem;
-    text-align: left;
-    margin: 0 auto;
-    padding:0 1rem;
-    }
-    .textblock p:first-child {
-      text-indent:0;
-    }
+  text-align: left;
+  margin: 0 auto;
+  padding:0 1rem;
 
+  /* These are technically the same, but use both */
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  word-break: break-word;
+
+  /* Adds a hyphen where the word breaks, if supported (No Blink) */
+  hyphens: auto;
+}
+
+.textblock p:first-child {
+  text-indent:0;
+}
+
+.textblock a{
+  /* These are technically the same, but use both */
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  word-break: break-word;
+
+  /* Adds a hyphen where the word breaks, if supported (No Blink) */
+  hyphens: auto;
+}
 
 .starr {
   display:flex;
@@ -410,13 +429,39 @@ h4 {
 
 
 .caption {
-display: block;
-margin-left: auto;
-margin-right: auto;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
   font-family: BTO Grotesk;
   font-size: 0.7rem;
   text-align: center;
-  line-height: 0.4rem;
+  line-height: 0.95rem;
+  text-indent:0;
+}
+
+figure.image-fullscreen{
+  margin:0;
+  padding:0;
+  padding-top:1rem;
+  padding-bottom:1rem;
+  
+  width:calc(100vw + 2rem);
+  margin-left:calc(-25vw - 1rem);
+  margin-right:calc(-25vw - 1rem);
+}
+
+.acknowledgement-block{
+  padding-bottom:2rem;
+}
+
+img{
+  position: relative;
+  display: block;
+  width:100%;
+  height:auto;
+  margin:0;
+  padding:0;
+  object-fit: contain;
 }
 
 figcaption{
@@ -426,7 +471,7 @@ figcaption{
   text-align: center;
   margin-top: 0.5rem;
   margin-bottom: 2rem;
-  line-height: 0.4rem;
+  text-indent: 0;
 }
 
 .image-gallery {
@@ -456,17 +501,14 @@ figcaption{
   margin-left: auto;
   margin-right: auto;
   align-items: center;
-  margin-top: 2rem;
+  /* margin-top: 2rem; */
 }
 
 .island{
   
-  height: 100vh; 
-  width: auto;
-  margin-left: auto;
-  margin-right: auto;
-  transform: translate(-30%) ;
-
+  height: auto;
+  max-width: 100vw;
+  margin-left: -26vw;
 }
 
 .image p {
@@ -476,9 +518,7 @@ figcaption{
 }
 
 .image-gallery img {
-  /* width: 100% !important; */
   margin-left:1rem;
-  /* max-height:calc(100vh - 2rem); */
   height: 90vh;
 }
 .image-gallery img:first-child {
@@ -580,17 +620,7 @@ label.margin-toggle:not(.sidenote-number) {
 }
 
 
-@media (max-width: 76000px) {
-  body {
-      width: 100%;
-      /* padding-left: 8%; */
-      /* padding-right: 8%; */
-  }
-}
-
-
-/** MOBILE **/
-@media only screen and (max-width: 600px) {
+@media (max-width: 760px) {
   #navigation {
     flex-direction:column;
     align-items:center;
@@ -602,4 +632,16 @@ label.margin-toggle:not(.sidenote-number) {
   .maps img {
     width:100%;
   }
+
+  .textblock, .bib{
+    width: calc(100vw - 4rem);
+  }
+
+  figure.image-fullscreen{
+    
+    width:calc(100vw);
+    margin-left:-3rem;
+    margin-right:-3rem;
+  }
+  
 }
