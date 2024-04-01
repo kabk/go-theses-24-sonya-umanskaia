@@ -454,6 +454,17 @@ figure.image-fullscreen{
   padding-bottom:2rem;
 }
 
+.img-ver{
+  position: relative;
+  display: block;
+  width: auto;
+  height: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0;
+  object-fit: contain;
+}
+
 img{
   position: relative;
   display: block;
